@@ -81,10 +81,4 @@ Não alteram o banco de produção.
 
 Erros de interface executados pelo programa são registrados em `sistema.log`.
 
-## Publicação
 
-Publique os arquivos de código, os testes fictícios e esta documentação.
-O `.gitignore` exclui bancos, planilhas, logs, backups, executáveis e relatórios internos.
-Dados reais continuam apenas no ambiente local e não fazem parte da demonstração.
-Revise `git diff --cached` antes de cada commit: arquivos ignorados ainda podem ser adicionados à força,
-e o `.gitignore` não remove dados de commits anteriores.
