@@ -35,13 +35,13 @@ Consulta da programação diária e da distribuição dos operadores.
 
 Organização das máquinas, operadores, produtos e ordens de produção por turno.
 
-![Programação e alocações por turno](https://portifolio-denilsom-lobo.web.app/images/git_hub_imgs/sistemas-programa-o-acabamento_02.jpeg) 
+![Programação e alocações por turno](https://portifolio-denilsom-lobo.web.app/images/git_hub_imgs/sistemas-programa-o-acabamento_03.jpeg) 
 
 ### 3. Turno atual
 
 Acompanhamento da programação do turno em andamento.
 
-![Painel do turno atual](https://portifolio-denilsom-lobo.web.app/images/git_hub_imgs/sistemas-programa-o-acabamento_03.jpeg)
+![Painel do turno atual](https://portifolio-denilsom-lobo.web.app/images/git_hub_imgs/sistemas-programa-o-acabamento_02.jpeg)
 
 ## Tecnologias utilizadas
 
