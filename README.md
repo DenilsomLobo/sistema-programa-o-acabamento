@@ -1,19 +1,94 @@
 ﻿# Sistema de Programação de Acabamento
 
-Aplicação desktop para programar operadores, produtos e máquinas de acabamento.
+<!-- Inserir a capa recebida: ![Capa do sistema](docs/imagens/capa.png) -->
+
+Aplicação desktop para organizar a programação do setor de acabamento industrial. Centraliza a distribuição de operadores entre máquinas, produtos e ordens de produção (OPs), com consulta por data e turno.
+
+## Para que serve
+
+O sistema apoia o planejamento e o acompanhamento das atividades de acabamento: permite consultar quem está alocado em cada máquina, qual produto será trabalhado e a OP correspondente. Também registra operadores em atividades fora de máquina e importa programações de planilhas Excel no modelo descrito abaixo.
+
+Os dados ficam armazenados localmente em SQLite, sem necessidade de configurar um servidor de banco de dados.
+
+## Funcionalidades
+
+- **Programações:** criação, consulta, filtros, edição de data e turno e exclusão.
+- **Alocações:** associação de operadores, máquinas, produtos e OPs, com observações.
+- **Visão geral:** consulta por data, com navegação entre os dias.
+- **Turno atual:** acompanhamento da programação do turno em andamento.
+- **Fora de máquina:** registro de operadores em outras atividades.
+- **Cadastros:** manutenção de operadores, produtos e máquinas.
+- **Usuários:** autenticação com perfis de supervisor e operador; gestão de usuários e importação disponíveis para supervisores.
+- **Importação Excel:** leitura de `.xlsx`, `.xlsm` e `.xls`, com relatório de resultados e pendências.
+
+## Imagens do sistema
+
+A capa e as três imagens de funcionalidades serão adicionadas após o envio. Sugestão de organização:
+
+### 1. Visão geral
+
+Consulta da programação diária e da distribuição dos operadores.
+
+<!-- Inserir: ![Visão geral da programação diária](docs/imagens/visao-geral.png) -->
+
+### 2. Programações e alocações
+
+Organização das máquinas, operadores, produtos e ordens de produção por turno.
+
+<!-- Inserir: ![Programação e alocações por turno](docs/imagens/programacoes.png) -->
+
+### 3. Turno atual
+
+Acompanhamento da programação do turno em andamento.
+
+<!-- Inserir: ![Painel do turno atual](docs/imagens/turno-atual.png) -->
+<!-- Ajustar nomes e legendas às imagens recebidas. -->
+
+## Tecnologias utilizadas
+
+| Tecnologia | Uso no projeto |
+| --- | --- |
+| Python 3.10+ | Linguagem da aplicação |
+| CustomTkinter | Interface gráfica desktop |
+| Tkinter / ttk | Janelas, tabelas e diálogos |
+| SQLite / sqlite3 | Armazenamento local dos dados |
+| pandas | Leitura e tratamento de planilhas |
+| openpyxl | Suporte a arquivos `.xlsx` e `.xlsm` |
+| xlrd | Suporte a arquivos `.xls` |
+| hashlib / hmac | Proteção e verificação de senhas com PBKDF2 |
+| PyInstaller | Geração opcional do executável Windows |
+| unittest | Testes automatizados |
+
+As dependências de execução estão em `requirements.txt`. SQLite, Tkinter, hashlib, hmac e unittest fazem parte da biblioteca padrão do Python; a interface exige Tcl/Tk.
 
 ## Instalação e execução
 
 Instale Python 3.10 ou superior, incluindo Tcl/Tk (instalação padrão do Python para Windows).
-Na pasta do projeto:
+Baixe ou clone o repositório e abra o PowerShell na pasta que contém `main.py` e `requirements.txt`. Crie um ambiente virtual, instale as dependências e inicie o sistema:
 
 ```powershell
-python -m pip install -r requirements.txt
-python main.py
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe main.py
 ```
+
+Usar o Python do ambiente virtual diretamente dispensa a ativação. Nos demais comandos deste README, substitua `python` por `.\.venv\Scripts\python.exe` para usar o mesmo ambiente.
+
+### Primeiro acesso
 
 Uma base vazia recebe o usuário `admin` com senha `admin123`. Altere a senha no cadastro de usuários.
 As senhas de bases antigas continuam funcionando e são migradas para PBKDF2 no login válido.
+
+## Como usar
+
+1. Entre com seu usuário e senha.
+2. Confira ou cadastre operadores, produtos e máquinas com um perfil de supervisor.
+3. Em **Programações**, crie uma programação para a data e o turno desejados.
+4. Abra as alocações e associe máquina, operador, produto e OP; preencha observações quando necessário.
+5. Registre outras atividades em **Fora de Máquina**.
+6. Consulte **Visão Geral** e **Turno Atual** para acompanhar a programação.
+
+Para aproveitar uma planilha existente, use **Importar XLS** com um perfil de supervisor e confira o relatório ao final.
 
 ## Demonstração com dados fictícios
 
@@ -80,5 +155,36 @@ Não precisam de planilhas ou bancos da empresa. Os testes de interface abrem ja
 Não alteram o banco de produção.
 
 Erros de interface executados pelo programa são registrados em `sistema.log`.
+
+## Estrutura do projeto
+
+```text
+.
+├── main.py              # Interface, login e navegação
+├── database.py          # Banco SQLite, cadastros e autenticação
+├── importar.py          # Importação das planilhas Excel
+├── demonstracao.py      # Execução com dados fictícios
+├── requirements.txt     # Dependências de execução
+├── main.spec            # Configuração do PyInstaller
+├── engrenagem.ico       # Ícone do executável
+├── tests/               # Testes e dados fictícios
+└── README.md            # Apresentação e instruções
+```
+
+As imagens da apresentação serão organizadas em `docs/imagens/` após o envio.
+
+## Backup dos dados
+
+Feche o sistema e copie `acabamento.db` para um local seguro. Para restaurar uma cópia, mantenha a aplicação fechada e coloque o banco na pasta usada pela execução, preservando antes o arquivo atual. O banco reúne cadastros, usuários e programações.
+
+## Solução de problemas
+
+| Situação | O que verificar |
+| --- | --- |
+| Dependência não encontrada | Instale `requirements.txt` com o mesmo Python usado para iniciar o sistema. |
+| Falta de Tkinter | Confira se a instalação do Python inclui Tcl/Tk. |
+| Banco sem permissão de gravação | Use uma pasta em que seu usuário possa gravar arquivos. |
+| Planilha com registros rejeitados | Consulte o relatório e confira o modelo, a data e os cadastros auxiliares. |
+| Erro durante o uso da interface | Consulte `sistema.log`. |
 
 
