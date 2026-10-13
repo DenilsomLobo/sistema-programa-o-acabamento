@@ -1,6 +1,6 @@
 ﻿# Sistema de Programação de Acabamento
 
-<!-- Inserir a capa recebida: ![Capa do sistema](docs/imagens/capa.png) -->
+![Capa do sistema](https://portifolio-denilsom-lobo.web.app/images/projetos/sistema-de-acabamentos.png) 
 
 Aplicação desktop para organizar a programação do setor de acabamento industrial. Centraliza a distribuição de operadores entre máquinas, produtos e ordens de produção (OPs), com consulta por data e turno.
 
@@ -29,20 +29,19 @@ A capa e as três imagens de funcionalidades serão adicionadas após o envio. S
 
 Consulta da programação diária e da distribuição dos operadores.
 
-<!-- Inserir: ![Visão geral da programação diária](docs/imagens/visao-geral.png) -->
+![Visão geral da programação diária](https://portifolio-denilsom-lobo.web.app/images/git_hub_imgs/sistemas-programa-o-acabamento_01.jpeg) -->
 
 ### 2. Programações e alocações
 
 Organização das máquinas, operadores, produtos e ordens de produção por turno.
 
-<!-- Inserir: ![Programação e alocações por turno](docs/imagens/programacoes.png) -->
+![Programação e alocações por turno](https://portifolio-denilsom-lobo.web.app/images/git_hub_imgs/sistemas-programa-o-acabamento_02.jpeg) 
 
 ### 3. Turno atual
 
 Acompanhamento da programação do turno em andamento.
 
-<!-- Inserir: ![Painel do turno atual](docs/imagens/turno-atual.png) -->
-<!-- Ajustar nomes e legendas às imagens recebidas. -->
+![Painel do turno atual](https://portifolio-denilsom-lobo.web.app/images/git_hub_imgs/sistemas-programa-o-acabamento_03.jpeg)
 
 ## Tecnologias utilizadas
 
@@ -186,5 +185,8 @@ Feche o sistema e copie `acabamento.db` para um local seguro. Para restaurar uma
 | Banco sem permissão de gravação | Use uma pasta em que seu usuário possa gravar arquivos. |
 | Planilha com registros rejeitados | Consulte o relatório e confira o modelo, a data e os cadastros auxiliares. |
 | Erro durante o uso da interface | Consulte `sistema.log`. |
+
+**Para conhecer mais projetos meus, acesse meu portfólio pelo link abaixo:**
+🔗 https://portifolio-denilsom-lobo.web.app/projetos.html
 
 
